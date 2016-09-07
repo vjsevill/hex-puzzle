@@ -1,0 +1,20 @@
+             _i_
+            /   \
+           n     j
+   _R_    /   h   \    _p_
+  /   \   \       /   /   \
+ W     S   m     k   u     q
+/   Q   \   \_l_/   /   o   \
+\       /   / b \   \       /
+ V     T   g     c   t     r
+  \_U_/   /   a   \   \_s_/
+  / K \   \       /   / w \
+ P     L   f     d   B     x
+/   J   \   \_e_/   /   v   \
+\       /   / D \   \       /
+ O     M   I     E   A     y
+  \_N_/   /   C   \   \_z_/
+          \       /    
+           H     F
+            \_G_/
+   
