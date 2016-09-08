@@ -9,6 +9,8 @@ solve it.  If it cannot be solved, it repeats the above process until it does.
 Then, using file i/o, this program will display all of the moves required to 
 solve the puzzle at a specified frame-time.
 
+Lastly, this program was written in C++ out of personal interest.
+
 ###Compiling
 To compile the program, type in at the command line 
 `g++ -o hexexe Source.cpp HexPieces.cpp` 
