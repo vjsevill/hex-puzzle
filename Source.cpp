@@ -22,7 +22,7 @@ using namespace std;
 int main(int argc, char * argv[]) {
 
   HexPieces myPuzzle;
-	int possibleSet[ROWSIZE][COLSIZE] = {{0}};
+  int possibleSet[ROWSIZE][COLSIZE] = {{0}};
   int originalSet[ROWSIZE][COLSIZE] = {{0}};
   int attempts = 1, showSteps = 0;
  
@@ -48,18 +48,18 @@ int main(int argc, char * argv[]) {
   }
 
   myPuzzle.generateARandomSet(possibleSet); 
-	while (!myPuzzle.isTheRandomSetSolvable(possibleSet, 0)){
-  	myPuzzle.generateARandomSet(possibleSet);
+  while (!myPuzzle.isTheRandomSetSolvable(possibleSet, 0)){
+    myPuzzle.generateARandomSet(possibleSet);
 	  attempts++;
 	}
 
   (void)myPuzzle.isTheRandomSetSolvable(possibleSet, 1);
 
-	cout << "The program went through " << attempts <<
+  cout << "The program went through " << attempts <<
       " possible sets of game pieces.\n" << "Set number " << attempts << 
       " is actually solvable." << endl << "Here it is: " << endl;
 	
   myPuzzle.displayASet(possibleSet);
 
-	return 0;
+  return 0;
 }

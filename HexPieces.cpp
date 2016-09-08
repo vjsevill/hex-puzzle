@@ -384,63 +384,62 @@ bool HexPieces::aPieceDoesntFit(int currentState, int puzzlePieces[][COLSIZE]) {
  *    puzzlePieces      - The current set of puzzle pieces
  */
 void HexPieces::generateARandomSet(int puzzlePieces[][COLSIZE]) {
-	srand(time(0));
-	int upperBound = COLSIZE;
-	int lowerBound = 1;
-	int randomNum;
-	bool thisNumWorks = false;
-	bool indexCounter = 0;
+  srand(time(0));
+  int upperBound = COLSIZE;
+  int lowerBound = 1;
+  int randomNum;
+  bool thisNumWorks = false;
+  bool indexCounter = 0;
 
   /*for all 7 possible tiles*/
-	for (int row = 0; row < ROWSIZE; row++) {
+  for (int row = 0; row < ROWSIZE; row++) {
 
     /*come up with all 6 border numbers*/
-		for (int column = 0; column < COLSIZE; column++) {
-			thisNumWorks = false;
+    for (int column = 0; column < COLSIZE; column++) {
+      thisNumWorks = false;
       
       /*if its the 0th row and 0th column, just pick any number*/
-			if (!row && !column) {
-				puzzlePieces[row][column] = rand() % upperBound + 1;
-			}
+      if (!row && !column) {
+        puzzlePieces[row][column] = rand() % upperBound + 1;
+      }
       /*otherwise if its the first column, also pick any number*/
-			else if (!column) { 
-				puzzlePieces[row][column] = rand() % upperBound + 1;
+      else if (!column) { 
+        puzzlePieces[row][column] = rand() % upperBound + 1;
       }
       /*but if its an arbitrary tile/bordernumber*/
-			else {
-				randomNum = rand() % upperBound + 1;
+      else {
+        randomNum = rand() % upperBound + 1;
         /*check if this randomNum has already been assigned to a previous
           bordernumber for this tile*/
 				for (int z = column; z > 0; z--) {
           /*if its equal to any previous column, then this random num wont
             work*/
-				  if (randomNum == puzzlePieces[row][z - 1]) {
-					  thisNumWorks = false;
-					  break;
-					}
-				  else {
-					  thisNumWorks = true;
+          if (randomNum == puzzlePieces[row][z - 1]) {
+            thisNumWorks = false;
+            break;
           }
-				}
+          else {
+            thisNumWorks = true;
+          }
+        }
 
         /*if the number was unique then assign it to this tile*/
-			  if (thisNumWorks) {
-				  puzzlePieces[row][column] = randomNum;
+        if (thisNumWorks) {
+          puzzlePieces[row][column] = randomNum;
         }
         /*otherwise try again for this bordernumber*/
-			  else {
-				  column--;
+        else {
+          column--;
         }
-			}
-		}
+      }
+    }
 	
     /*lastly as long as you have 2 puzzle pieces, check if this newly generated
       tile is unique compared to all those we've generated b4 this one*/
     if (row > 0 && arePiecesTheSame(puzzlePieces, row)) {
-			row--;
-	  }
+      row--;
+    }
   }
-
 }
 
 
@@ -453,14 +452,14 @@ void HexPieces::generateARandomSet(int puzzlePieces[][COLSIZE]) {
  *    puzzlePieces      - The current set of puzzle pieces
  */
 void HexPieces::displayASet(int puzzlePieces[][COLSIZE]) {
-	for (int tileNumber = 0; tileNumber < ROWSIZE; tileNumber++)
-	{
-		for (int borderNumber = 0; borderNumber < COLSIZE; borderNumber++)
-		{
-			cout << puzzlePieces[tileNumber][borderNumber] << " ";
-		}
-		cout << endl;
-	}
+  for (int tileNumber = 0; tileNumber < ROWSIZE; tileNumber++)
+  {
+    for (int borderNumber = 0; borderNumber < COLSIZE; borderNumber++)
+    {
+      cout << puzzlePieces[tileNumber][borderNumber] << " ";
+    }
+    cout << endl;
+  }
 }
 
 
@@ -484,7 +483,7 @@ string HexPieces::translateTheTilesToString(int puzzlePieces[][COLSIZE],
   string formedString = "";
   
   /*for all the pieces currently on the board*/
-    for (int state = 0; state < currentState; state++) {
+  for (int state = 0; state < currentState; state++) {
     
     /*write the tile number first*/
     formedString = formedString += to_string(tilesOnTheBoard[state]);
@@ -496,7 +495,7 @@ string HexPieces::translateTheTilesToString(int puzzlePieces[][COLSIZE],
     }
   }
 
-	return formedString;
+  return formedString;
 }
 
 
@@ -525,25 +524,25 @@ void HexPieces::displayThePicture(int puzzlePieces[][COLSIZE],int currentState){
       currentState); 
 
   /*open the correct file given the currentState of the board*/
-	if (currentState == 1) {
+  if (currentState == 1) {
     templateFile.open("template_0.txt", ios::in);
-	}
-	else if (currentState == 2) {
+  }
+  else if (currentState == 2) {
     templateFile.open("template_1.txt", ios::in);
   }
-	else if (currentState == 3) {
+  else if (currentState == 3) {
     templateFile.open("template_2.txt", ios::in);
   }
-	else if (currentState == 4) {
+  else if (currentState == 4) {
     templateFile.open("template_3.txt", ios::in);
   }
-	else if (currentState == 5) {
+  else if (currentState == 5) {
     templateFile.open("template_4.txt", ios::in);
   }
-	else if (currentState == 6) {
+  else if (currentState == 6) {
     templateFile.open("template_5.txt", ios::in);
   }
-	else if (currentState == 7) {
+  else if (currentState == 7) {
     templateFile.open("template_6.txt", ios::in);
   }
      
@@ -591,27 +590,27 @@ void HexPieces::writeALine(string lineFromTemplateFile,
   char tempChar;
 
   /*check every character in the line form the templateFile*/
-	for (int i = 0; i < lineFromTemplateFile.length(); i++)
-	{
+  for (int i = 0; i < lineFromTemplateFile.length(); i++)
+  {
     /*grab the next character*/
-		tempChar = lineFromTemplateFile[i];
+    tempChar = lineFromTemplateFile[i];
 
     /*if its a structural character from the hex diagram ignore it*/
-		if (tempChar != ' ' || tempChar != '/' || tempChar != '_') {
+    if (tempChar != ' ' || tempChar != '/' || tempChar != '_') {
       /*but if its a placeholder(ie an uppercase or lowercase letter, then
         replace the placeholder w/ the correct number from the encodedTiles 
         string*/
       if (tempChar >= 'a' && tempChar <= 'z') {
-     		lineFromTemplateFile[i] = encodedTiles[tempChar - 'a'];
+        lineFromTemplateFile[i] = encodedTiles[tempChar - 'a'];
       }
       else if (tempChar >= 'A' && tempChar <= 'Z') {
-    		lineFromTemplateFile[i] = encodedTiles[tempChar - 'A' + 26];
+        lineFromTemplateFile[i] = encodedTiles[tempChar - 'A' + 26];
       }    
     }
-	}
+  }
 
 	/* write the updated line from the template file to stdout*/
-    cout << lineFromTemplateFile << endl;
+  cout << lineFromTemplateFile << endl;
 }
 
 
@@ -632,12 +631,12 @@ bool HexPieces::arePiecesTheSame(int puzzlePieces[][COLSIZE], int tileNumber) {
   bool sameSequence = true;
 
     /*compare the given puzzle piece to all those before it*/
-		for (int tempTile = tileNumber; tempTile > 0; tempTile--)
-		{
+    for (int tempTile = tileNumber; tempTile > 0; tempTile--)
+    {
       /*rotate the given puzzle piece COLSIZE many times*/
-			for (int cnt = 0; cnt < COLSIZE; cnt++)
-			{
-				sameSequence = true;
+      for (int cnt = 0; cnt < COLSIZE; cnt++)
+      {
+        sameSequence = true;
         rotateTile(puzzlePieces, tileNumber);
 
         /*check if the two pieces have the same sequence*/
@@ -651,10 +650,9 @@ bool HexPieces::arePiecesTheSame(int puzzlePieces[][COLSIZE], int tileNumber) {
         if (sameSequence) {
           return true;
         }
-			}
-		}
+      }
+    }
     return false;
-		
 }
 
 
@@ -670,14 +668,14 @@ bool HexPieces::arePiecesTheSame(int puzzlePieces[][COLSIZE], int tileNumber) {
 void HexPieces::rotateTile(int puzzlePieces[][COLSIZE], int tileNumber) {
 
   /*perform a shift by swapping the first w/ the last*/
-	int temp = puzzlePieces[tileNumber][0];
-	for (int borderNumber = 0; borderNumber < COLSIZE - 1; borderNumber++)
-	{
+  int temp = puzzlePieces[tileNumber][0];
+  for (int borderNumber = 0; borderNumber < COLSIZE - 1; borderNumber++)
+  {
     /*shift the sequence left*/
-		puzzlePieces[tileNumber][borderNumber] 
+    puzzlePieces[tileNumber][borderNumber] 
         = puzzlePieces[tileNumber][borderNumber + 1];
-	}
+  }
 
-	puzzlePieces[tileNumber][COLSIZE - 1] = temp;
+  puzzlePieces[tileNumber][COLSIZE - 1] = temp;
 }
 
