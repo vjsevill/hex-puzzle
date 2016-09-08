@@ -11,7 +11,7 @@ solve the puzzle at a specified frame-time.
 
 ###Compiling
 To compile the program, type in at the command line 
-`g++ -o hexexe Source.cpp HexPieces.cpp`
+`g++ -o hexexe Source.cpp HexPieces.cpp` 
 
 ###Running
 To run the program, after compiling, type in at the command line 
