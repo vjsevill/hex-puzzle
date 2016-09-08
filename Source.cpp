@@ -50,8 +50,8 @@ int main(int argc, char * argv[]) {
   myPuzzle.generateARandomSet(possibleSet); 
   while (!myPuzzle.isTheRandomSetSolvable(possibleSet, 0)){
     myPuzzle.generateARandomSet(possibleSet);
-	  attempts++;
-	}
+    attempts++;
+  }
 
   (void)myPuzzle.isTheRandomSetSolvable(possibleSet, 1);
 

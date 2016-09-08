@@ -80,7 +80,7 @@ void HexPieces::solveIt(int puzzlePieces[][COLSIZE], int displayFlag,
   /*keep trying to solve until the puzzle has been solved or you've 
     already tried placing all the remaining tiles*/
   while (!solved && ++currentPiece != ROWSIZE) {
-      shortCircuit = false;
+    shortCircuit = false;
     
     /*check to see if this tile is already on the board*/
     while(tileNumber != ROWSIZE) {
@@ -411,7 +411,7 @@ void HexPieces::generateARandomSet(int puzzlePieces[][COLSIZE]) {
         randomNum = rand() % upperBound + 1;
         /*check if this randomNum has already been assigned to a previous
           bordernumber for this tile*/
-				for (int z = column; z > 0; z--) {
+        for (int z = column; z > 0; z--) {
           /*if its equal to any previous column, then this random num wont
             work*/
           if (randomNum == puzzlePieces[row][z - 1]) {
