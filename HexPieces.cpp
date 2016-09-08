@@ -525,25 +525,25 @@ void HexPieces::displayThePicture(int puzzlePieces[][COLSIZE],int currentState){
 
   /*open the correct file given the currentState of the board*/
   if (currentState == 1) {
-    templateFile.open("template_0.txt", ios::in);
+    templateFile.open("templates/template_0.txt", ios::in);
   }
   else if (currentState == 2) {
-    templateFile.open("template_1.txt", ios::in);
+    templateFile.open("templates/template_1.txt", ios::in);
   }
   else if (currentState == 3) {
-    templateFile.open("template_2.txt", ios::in);
+    templateFile.open("templates/template_2.txt", ios::in);
   }
   else if (currentState == 4) {
-    templateFile.open("template_3.txt", ios::in);
+    templateFile.open("templates/template_3.txt", ios::in);
   }
   else if (currentState == 5) {
-    templateFile.open("template_4.txt", ios::in);
+    templateFile.open("templates/template_4.txt", ios::in);
   }
   else if (currentState == 6) {
-    templateFile.open("template_5.txt", ios::in);
+    templateFile.open("templates/template_5.txt", ios::in);
   }
   else if (currentState == 7) {
-    templateFile.open("template_6.txt", ios::in);
+    templateFile.open("templates/template_6.txt", ios::in);
   }
      
   /*clear the console so you can display the rotations frame by frame*/
